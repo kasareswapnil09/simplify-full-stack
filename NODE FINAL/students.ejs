@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REGISTERED USERS</title>
+</head>
+<body>
+    <h1 style="text-align:centerd;">LIST  OF REGISTERED USERS</h1>
+
+    <table border="1" width="100%">
+        <tr>
+            <th>id</th>
+            <th> Name</th>
+            <th>Age</th>
+            <th>mark1</th>
+            <th>mark2</th>
+            <th>mark3</th>
+        </tr>
+
+        <% if(students.length >0) { %>
+
+            <% for (var i = 0; i<students.length;i++) { %>
+
+                <tr>
+                    <td><%- students[i].id %></td>
+                    <td><%- students[i].name %></td>
+                    <td><%- students[i].age %></td>
+                    <td><%- students[i].mark1 %></td>
+                    <td><%- students[i].mark2 %></td>
+                    <td><%- students[i].mark3 %></td>
+                    <td>
+                        <a href="/delete-student?id=<%- students[i].id %>">Delete</a>
+                        <a href="/edit-student?id=<%- students[i].id %>">Edit</a>
+                        <a href="/view-student?id=<%- students[i].id %>">View</a>
+                    </td>
+                </tr>
+
+        <% } %>
+            
+        <% }else { %>
+
+            <h1>Users Data not found!</h1>
+
+            <% } %>
+
+            <a href="/logout">logout</a>
+
+    </table>
+</body>
+</html>
